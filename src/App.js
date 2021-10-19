@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import Expenses from './components/Expenses/Expenses'
+import NewExpense from './components/NewExpense/NewExpense'
 
 function App() {
   const expenses = [
@@ -23,9 +25,13 @@ function App() {
     },
   ]
 
+  const addExpenseHandler = (expense) => {
+    console.log('Logged in App.js', expense)
+  }
+
   return (
     <div>
-      <h1>Let's get started!</h1>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   )
